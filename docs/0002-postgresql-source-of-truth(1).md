@@ -1,7 +1,7 @@
-# ADR 0002: PostgreSQL como fonte oficial
+# ADR 0002: CSV curado e JSON local no protótipo
 
-- **Status:** Proposto
-- **Contexto:** relações investigativas precisam de integridade transacional, histórico, filtros e rastreabilidade; o volume real é desconhecido.
-- **Decisão:** persistir entidades e fatos investigativos no PostgreSQL; grafo é projeção calculada. Não introduzir banco de grafos até benchmark e consultas reais demonstrarem necessidade.
-- **Consequências:** modelo relacional e índices precisam suportar consulta de adjacência; análise trabalha com snapshots. Migração para outra tecnologia seria decisão explícita e não altera fonte oficial por omissão.
-- **Alternativas consideradas:** Neo4j como fonte primária (duplicação/consistência e benefício ainda não comprovados); armazenar tudo como JSON (fraca integridade e consultas).
+- **Status:** Proposta de evolução, não vigente no MVP atual.
+- **Contexto:** produção colaborativa exige integridade transacional e concorrência; o MVP atual prioriza execução local reproduzível.
+- **Decisão vigente:** CSVs em `data/curadoria/` são a entrada curada; `npm run build:db` valida e compila `data/graph.json`, usado pela API Node.
+- **Consequências:** distribuição simples e reprodutível; runtime JSON não é banco concorrente nem oferece transações multiusuário, histórico ou recuperação.
+- **Alternativa futura:** avaliar banco transacional quando colaboração, concorrência, retenção/auditoria ou volume justificarem. PostgreSQL não é dependência atual.

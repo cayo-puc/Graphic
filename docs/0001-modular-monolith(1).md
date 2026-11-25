@@ -1,7 +1,7 @@
-# ADR 0001: Monólito modular para o núcleo do produto
+# ADR 0001: Limites modulares sem microserviços prematuros
 
-- **Status:** Supersedido pela proposta do ADR 0006 (ainda aguardando validação).
-- **Contexto:** NEXUS começa sem código e precisa de limites de domínio claros sem custo operacional prematuro.
-- **Decisão:** Spring Boot como aplicação modular única para IAM, investigações, entidades, relações, fontes/evidências, grafo de consulta e auditoria. Módulos não acessam repositórios alheios diretamente; APIs internas explícitas.
-- **Consequências:** transações e desenvolvimento local simples; exige disciplina de dependências e testes arquiteturais. Extração futura só quando escala, isolamento operacional ou ritmo de mudança justificar.
-- **Alternativas consideradas:** microserviços desde o início (custo e consistência distribuída sem necessidade demonstrada); aplicação sem modularização (acoplamento crescente).
+- **Status:** Vigente no MVP GRAPH (Node.js, React/Vite, JSON local).
+- **Contexto:** o MVP precisa de fluxo integrado com custo operacional local baixo.
+- **Decisão:** API HTTP única Node.js organizada por responsabilidades de investigação, catálogo/contexto de entidades, relacionamentos/evidências/fontes e análise.
+- **Consequências:** integração e execução local simples; módulos podem ser extraídos se escala, isolamento ou ritmo de mudança justificarem.
+- **Histórico:** a versão anterior deste ADR propunha Spring Boot para o NEXUS. Essa tecnologia não foi adotada no GRAPH.

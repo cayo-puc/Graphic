@@ -1,44 +1,42 @@
 # GRAPH
 
-Protótipo acadêmico para organizar investigações e explorar redes de entidades. O sistema é genérico: uma investigação pode representar qualquer tema e seus próprios dados.
+MVP local para curar e explorar redes de investigação com entidades, relações, fontes e evidências rastreáveis.
 
-> **Aviso sobre a demonstração:** “Rede demonstrativa — Horizonte” contém personagens, organizações, relações e referências inteiramente fictícias, criadas apenas para validar a aplicação. Não descreve o Banco Master nem qualquer pessoa, empresa ou fato real. Não cadastre dados pessoais sensíveis reais.
+## Executar
 
-## Requisitos e execução
+Requer Node.js 20+.
 
-- Node.js 20 ou superior e npm.
-- Instale dependências: `npm install`.
-- Em um terminal, inicie a API: `npm run api` (local em `127.0.0.1:3001`). Em outro, inicie o frontend: `npm run dev` (abra o endereço mostrado pelo Vite).
-- Ou gere a versão estática com `npm run build` e inicie a API com `npm start`. A API persiste em `data/graph.json`; sirva `dist/` com um servidor estático configurado para encaminhar `/api` ao endereço local da API.
-- Dados de demonstração são criados automaticamente na primeira inicialização. Para usar outro caminho, configure `GRAPH_DATA_FILE`; para trocar a porta da API, configure `API_PORT` (padrão `3001`). Não há arquivo `.env` obrigatório, PostgreSQL ou migração.
-- Testes: `npm test`.
+```sh
+npm install
+npm run build:db # compila data/curadoria/*.csv em data/graph.json
+npm run api      # terminal 1
+npm run dev      # terminal 2; abra o endereço mostrado pelo Vite
+```
+
+`npm test` executa testes de contrato e API. `npm run build` gera o frontend em `dist/`. A API escuta em `127.0.0.1:3101`; `API_PORT` e `GRAPH_DATA_FILE` são opcionais. O proxy do Vite usa a mesma variável `API_PORT`.
 
 ## Arquitetura
 
-- **Frontend:** React + Vite, com Cytoscape.js para o grafo interativo.
-- **API:** Node.js nativo, organizada em rotas de investigações, entidades, vínculos, fontes e métricas.
-- **Persistência:** arquivo JSON local com escrita após cada alteração. É uma escolha simples para a demonstração acadêmica, não um banco concorrente para uso multiusuário.
-- **Análises:** grau de vizinhança, betweenness de Brandes em grafo não direcionado e componentes conexos. A projeção agrega vínculos paralelos, ignora a direção e não atribui pesos.
+- React/Vite e Cytoscape.js no frontend.
+- API única em Node.js nativo, dividida por responsabilidades.
+- JSON local para persistência de runtime; CSV como curadoria reprodutível.
+- `scripts/build-db.mjs` valida FKs, enumerações e a regra de uma ou mais evidências por relação.
+- `src/api/cytoscapeMapper.js` gera os elementos Cytoscape com filtros e evidências hidratadas.
 
-## Uso rápido
+## Base v2.0.0
 
-1. Abra **Investigações** e crie um espaço.
-2. Entre em **Análise de rede**, selecione a investigação e adicione entidades e relacionamentos.
-3. Selecione nós ou arestas para consultar os detalhes. Use os filtros por tipo e confirmação; arraste os nós e controle zoom/centralização.
-4. Cadastre referências em **Fontes** ou no painel de detalhes, associando-as a um relacionamento.
-5. Consulte **Entidades** e as métricas na lateral do grafo.
+`data/curadoria/` contém investigações, fontes, catálogo global de entidades, vínculos contextuais, relacionamentos e evidências. Uma fonte pode sustentar muitas evidências. Relações distinguem `epistemic_status` de `legal_outcome`. Valores objetivos podem ter unidade (por exemplo, multas em `BRL`); as métricas de rede não usam esses valores como pesos.
 
-## Classificações e limites
-
-Cada vínculo usa `DOCUMENTED`, `REPORTED`, `ALLEGED` ou `UNCONFIRMED`. Essas classificações descrevem o estado de confirmação cadastrado, não culpa ou probabilidade criminal. As métricas são propriedades estruturais da rede e não demonstram influência, irregularidade ou responsabilidade. O usuário é responsável por cadastrar fontes verificáveis; as fontes seed são exemplos explicitamente fictícios e não apontam para URLs oficiais.
-
-O MVP não implementa autenticação, permissões multiusuário, edição/exclusão individual de entidades ou relacionamentos, nem concorrência/recuperação de banco. Investigações podem ser arquivadas via API (`PUT /api/investigations/:id` com `{"status":"ARCHIVED"}`); a exclusão é recusada se ainda houver entidades. O arquivo JSON deve ser protegido e incluído em backup pelo operador.
+A curadoria empírica fornecida organiza o PAS CVM nº 19957.007976/2020-94 a partir do voto oficial de 08/09/2026. Sua presença na rede não implica responsabilidade criminal; a imputação e o desfecho administrativo ficam associados às relações processuais. A base anterior “Horizonte” permanece em investigação separada e é explicitamente sintética.
 
 ## API principal
 
-- `GET /api` — visão agregada do workspace.
-- `POST /api/investigations`, `PUT/DELETE /api/investigations/:id`.
-- `GET /api/investigations/:id/graph` e `GET /api/investigations/:id/metrics`.
-- `POST /api/entities`, `POST /api/relationships`, `POST /api/sources`.
+- `GET /api` — workspace normalizado e `schemaVersion`.
+- `GET /api/investigations/:id/graph` — entidades, relações, evidências e `elements` Cytoscape; filtros por `entityTypes`, `relationTypes`, `epistemicStatuses`, `legalOutcomes`, `startDate`, `endDate`.
+- `GET /api/investigations/:id/metrics` — degree, Brandes betweenness, harmonic closeness e componentes na projeção não direcionada sem pesos.
+- `GET /api/investigations/:id/path?from=&to=` — caminho BFS no grafo original, respeitando direção.
+- CRUD de investigações, entidades, relações e fontes; `POST /api/evidences` anexa evidência.
 
-As rotas de criação validam campos essenciais e a pertença das entidades à investigação. Referências de fontes são armazenadas como texto, sem validação de URL.
+## Limites
+
+Sem autenticação, concorrência multiusuário, banco transacional, importador CSV genérico na interface, versionamento/histórico ou deploy de produção. A curadoria CSV é o artefato reproduzível; CRUD altera o JSON runtime e essas alterações precisam ser copiadas à curadoria antes do próximo `build:db`.

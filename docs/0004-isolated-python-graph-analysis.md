@@ -1,7 +1,7 @@
-# ADR 0004: Serviço de análise isolado em Python
+# ADR 0004: Serviço de análise isolado
 
-- **Status:** Proposto para fase 3
-- **Contexto:** domínio transacional em Java e algoritmos propostos com NetworkX em Python.
-- **Decisão:** manter o worker FastAPI separado, stateless e privado, consumindo snapshots DTO autorizados do backend; não acessar diretamente banco ou arquivos. Adiar criação até a fase de grafos.
-- **Consequências:** dependências e carga de CPU isoladas, possibilidade de escalar/reiniciar separadamente; adiciona operação, autenticação serviço-a-serviço e contrato versionado.
-- **Alternativas consideradas:** chamar Python via subprocesso desde o início (acoplamento e isolamento operacional fracos); reimplementar análise em Java (desvia da stack proposta); misturar dados e análise no serviço principal.
+- **Status:** Não adotado no MVP; proposta futura superada pela análise Node síncrona atual.
+- **Contexto:** uma versão anterior sugeria serviço Python/FastAPI com NetworkX.
+- **Decisão vigente:** métricas e BFS ficam na API Node, sobre snapshots JSON da investigação; Cytoscape.js consome a projeção da API.
+- **Consequências:** menos serviços e dependências para executar a demonstração. Se escala ou perfil de carga mostrar gargalo, medir alternativas antes de extrair processamento.
+- **Nota:** Python, FastAPI e NetworkX não são requisitos nem componentes atuais.

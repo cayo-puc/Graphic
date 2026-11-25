@@ -1,0 +1,4 @@
+id,investigation_id,title,source_type,issuing_body,document_number,publication_date,url,reliability_tier
+SRC-CVM-VOTO-2026,INV-MASTER-001,"Voto do Diretor Relator João Accioly - PAS CVM nº 19957.007976/2020-94 (Reg. Col. 2655/22)",ADMINISTRATIVE_DECISION,"Comissão de Valores Mobiliários (CVM)","19957.007976/2020-94",2026-09-08,https://www.gov.br/cvm/pt-br/assuntos/noticias/anexos/2026/20260908-pas-cvm-19957-007976-2020-94-diretor-joao-accioly-voto.pdf,PRIMARY_OFFICIAL
+SRC-SYNTHETIC-DEMO,INV-DEMO-HORIZON,"Dados fictícios de demonstração GRAPH",SYNTHETIC_FIXTURE,"Projeto GRAPH",,2026-11-23,,SYNTHETIC
+SRC-LAW-6385-ART11P15,INV-MASTER-001,"Lei nº 6.385/1976, art. 11, § 15",LEGISLATION,"Presidência da República / legislação federal","Lei 6.385/1976",2017-11-13,https://anttlegis.antt.gov.br/action/ActionDatalegis.php?acao=abrirTextoAto&cod_menu=7145&cod_modulo=420&nomeTitulo=codigos&numeroAto=00006385&orgao=NI&seqAto=000&tipo=LEI&valorAno=1976,PRIMARY_OFFICIAL

@@ -1,0 +1,33 @@
+id,canonical_name,entity_type,aliases,tax_or_reg_id,description,metadata
+ENT-PROC-001,"PAS CVM nº 19957.007976/2020-94",ADMINISTRATIVE_PROCEEDING,"Reg. Col. 2655/22|Processo de Origem 19957.007107/2019-26","19957.007976/2020-94","Processo Administrativo Sancionador sobre a 3ª emissão e negociação secundária de cotas do Brazil Realty FII (BZLI11).","{""relator"":""João Accioly"",""voto_date"":""2026-09-08"",""total_accused"":19}"
+ENT-FUND-001,"Brazil Realty Fundo de Investimento Imobiliário",INVESTMENT_FUND,"Brazil Realty FII|BZLI11","BZLI11","Fundo de investimento imobiliário em condomínio fechado cuja 3ª emissão captou R$ 139,1 milhões até 31/03/2020.","{""ticker"":""BZLI11"",""third_issuance_brl"":139100000}"
+ENT-ORG-CVM,"Comissão de Valores Mobiliários",PUBLIC_BODY,"CVM","","Autarquia federal julgadora do PAS CVM nº 19957.007976/2020-94.","{}"
+ENT-ORG-MASTER,"Banco Master S/A - Em Liquidação Extrajudicial",FINANCIAL_INSTITUTION,"Banco Master|Banco Máxima S.A.","","Instituição financeira que integralizou R$ 16,783 milhões em dinheiro na 3ª emissão e operou no mercado secundário de BZLI11.","{""status"":""Em Liquidação Extrajudicial"",""fund_account"":""0001073496""}"
+ENT-ORG-SEFER,"Sefer Investimentos DTVM Ltda. - Em Liquidação Extrajudicial",FINANCIAL_INSTITUTION,"Sefer|Indigo DTVM|Sefer/Indigo","","Administradora fiduciária do Brazil Realty FII, intermediária líder da 3ª emissão e contraparte em balcão não organizado.","{""status"":""Em Liquidação Extrajudicial""}"
+ENT-ORG-VIKING,"Viking Participações Ltda.",COMPANY,"Viking","","Sociedade administrada por Daniel Vorcaro que adquiriu cotas BZLI11 da Milo e operou no mercado secundário.","{}"
+ENT-ORG-MILO,"Milo Investimentos S.A.",COMPANY,"Milo","","Subscritora de 5,7 milhões de cotas BZLI11 (R$ 70 milhões) integralizadas com 70 milhões de quotas da MGI.","{}"
+ENT-ORG-MGI,"MGI Desenvolvimento Imobiliário SPE S.A.",COMPANY,"MGI|MG I","","Sociedade interposta cujo aumento de capital recebeu ações da MG II avaliadas por laudo sobre terreno em Contagem/MG.","{}"
+ENT-ORG-MGII,"MG II",COMPANY,"MG II","","Sociedade detentora de fração ideal de imóvel em Contagem/MG (Matrícula 69.144), conferida ao capital da MGI.","{}"
+ENT-ORG-TALENT,"Talent Construções S.A.",COMPANY,"Talent","","Subscritora de 2.360.162 cotas BZLI11 (R$ 28,7 milhões) integralizadas com ações da Brasil Realty Empreendimentos S.A.","{}"
+ENT-ORG-ESPACO,"Espaço Engenharia e Construção S.A.",COMPANY,"Espaço","","Subscritora de 845.256,79 cotas BZLI11 (R$ 10,4 milhões) mediante suposta conferência de 50 lotes em Nova Lima/MG.","{}"
+ENT-ORG-ENTRE,"Entre Investimentos e Participações Ltda.",COMPANY,"Entre|Arya","","Sociedade controlada em 70% pela FG Participações que realizou 177 operações em balcão não organizado com cotas BZLI11.","{}"
+ENT-ORG-JAGUAR,"Jaguar Investments Horizon LLC",INVESTMENT_FUND,"Jaguar|Jaguar/BMI|Brazilian Multimarket|Centara Multimarket","","Fundo estrangeiro cujo beneficiário final no Brasil era Benjamim Botelho; realizou 32 operações com BZLI11.","{""jurisdiction"":""Foreign""}"
+ENT-ORG-FG,"FG Participações S.A.",COMPANY,"FG Participações","","Holding detida integralmente por Benjamim Botelho; controlava a Sefer (via Foco) e detinha 70% da Entre.","{}"
+ENT-ORG-FOCO,"Foco Participações Ltda.",COMPANY,"Foco DTVM Ltda.|Foco","","Sociedade controlada pela FG Participações S.A. por meio da qual se exercia o controle da Sefer DTVM.","{}"
+ENT-ORG-BREMP,"Brasil Realty Empreendimentos S.A.",COMPANY,"Brasil Realty Empreendimentos","","Companhia fechada cujas ações foram conferidas pela Talent na integralização de cotas BZLI11 (detinha a SPE Medical Tower).","{}"
+ENT-PER-DANIEL,"Daniel Bueno Vorcaro",PERSON,"Daniel Vorcaro","","Acionista controlador e diretor do Banco Master S/A e sócio administrador da Viking Participações Ltda.","{}"
+ENT-PER-HENRIQUE,"Henrique Moura Vorcaro",PERSON,"Henrique Vorcaro","","Diretor responsável pela Milo Investimentos S.A.","{}"
+ENT-PER-FELIPE,"Felipe Cançado Vorcaro",PERSON,"Felipe Vorcaro","","Administrador da MGI Desenvolvimento Imobiliário SPE S.A. e sócio diretor da SPE Medical Tower.","{}"
+ENT-PER-BENJAMIM,"Benjamim Botelho de Almeida",PERSON,"Benjamim Botelho","","Acionista único da FG Participações S.A., controlador indireto da Sefer e beneficiário final da Jaguar Investments Horizon LLC.","{}"
+ENT-PER-FREIXO,"Antônio Carlos Freixo Júnior",PERSON,"Antônio Freixo","","Fundador e administrador exclusivo da Entre Investimentos e Participações Ltda. e administrador eleito da FG Participações.","{}"
+ENT-PER-PEDRO,"Pedro Henrique Barbosa da Cruz",PERSON,"Pedro Barbosa","","Representante legal da Talent Construções S.A., signatário do boletim de subscrição na 3ª emissão.","{}"
+ENT-PER-TULIO,"Túlio Carneiro Rocha",PERSON,"Túlio Carneiro","","Representante legal formal da Espaço Engenharia e Construção S.A., signatário dos boletins de subscrição.","{}"
+ENT-PER-ELISANGELA,"Elisangela Katia Capassi",PERSON,"Elisangela Capassi","","Diretora responsável da Sefer/Indigo DTVM entre 06/12/2018 e 30/04/2019. Absolvida da imputação de operação fraudulenta.","{}"
+ENT-PER-DAVID,"David João Abdala Júnior",PERSON,"David Abdala","","Diretor responsável da Sefer/Indigo DTVM entre 30/04/2019 e 22/11/2019. Absolvido da imputação de operação fraudulenta.","{}"
+ENT-PER-ALUIZIO,"Aluizio Honorio Moizinho Junior",PERSON,"Aluizio Moizinho","","Diretor responsável da Sefer/Indigo DTVM entre 22/11/2019 e 22/06/2020. Absolvido da imputação de operação fraudulenta.","{}"
+DEMO-E1,"Aurora Lima",PERSON,"",,"Personagem fictícia; perfil executivo.",{}
+DEMO-E2,"Grupo Horizonte",COMPANY,"",,"Empresa fictícia de energia.",{}
+DEMO-E3,"Instituto Vereda",INSTITUTION,"",,"Instituição fictícia de pesquisa.",{}
+DEMO-E4,"Caio Nogueira",PERSON,"",,"Personagem fictícia; pesquisador.",{}
+DEMO-E5,"Partido Cívico",POLITICAL_PARTY,"",,"Partido político inteiramente fictício.",{}
+DEMO-E6,"Cooperativa Raiz",ORGANIZATION,"",,"Cooperativa fictícia.",{}
